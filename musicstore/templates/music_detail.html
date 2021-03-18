@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<section class="content">
+    <header>
+        <h1>Music Details</h1>
+    </header>
+    <h1>{{ object.name }}</h1>
+    <p>{{ object.year }}</p>
+    <p>{{ object.description }}</p>
+
+    <br>
+    <p>
+        <a href="{% url 'manager:music-list' %}"> Home </a>
+    </p>
+</section>
+{% endblock %}
