@@ -4,14 +4,11 @@
 <section class="content">
     <header>
         <h1>Music Details</h1>
+        <a class="btn" href="{% url 'manager:music-list' %}"> Home </a>
     </header>
     <h1>{{ object.name }}</h1>
     <p>{{ object.year }}</p>
     <p>{{ object.description }}</p>
 
-    <br>
-    <p>
-        <a href="{% url 'manager:music-list' %}"> Home </a>
-    </p>
 </section>
 {% endblock %}
