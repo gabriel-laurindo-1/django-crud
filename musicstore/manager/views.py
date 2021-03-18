@@ -14,6 +14,17 @@ from .forms import MusicModelForm
 
 # Create your views here.
 
+class MusicDetailView(DetailView):
+    model = MUSIC_MODEL
+    fields = '__all__'
+    template_name = 'music_detail.html'
+    success_url = '/'
+
+    def get_object(self):
+        _id = self.kwargs.get('pk')
+        return get_object_or_404(self.model, id=_id)
+
+
 class MusicListView(ListView):
     template_name = 'home.html'
     queryset = MUSIC_MODEL.objects.all()
