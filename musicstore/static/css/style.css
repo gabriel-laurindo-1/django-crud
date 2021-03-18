@@ -2,5 +2,159 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Courier New', Courier, monospace;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    outline: 0;
+}
+
+
+body {
+    position: relative;
+    min-height: 100vh;
+    padding-bottom: 50px;
+}
+
+a {
+    text-decoration: none;
+    color: #000000;
+}
+
+.red:hover {
+    color: #ff0000;
+}
+
+.content {
+    width: 100%;
+    height: 100%;
+    padding: 0 0 10px 0;
+    background-color: #ffffff; /* teste*/
+    margin-bottom: 10px;
+    overflow: hidden;
+}
+
+.content > header {
+    width: 100%;
+    background-color: #12029e;
+    color: #ffffff;
+    padding: 10px;
+    margin-bottom: 10px;
+    text-align: center;    
+}
+
+.content header p{
+    color: #ffffff;
+    font-size: 15px;
+    font-weight: lighter;
+    text-align: center;
+    padding-bottom: 0;
+}
+
+.content p {
+    font-size: 20px; 
+    text-align: justify;
+    padding-bottom: 10px;
+}
+
+.content .subtitle {
+    text-align: left;
+    padding: 20px 0;
+}
+
+.center {
+    width: 100%;
+    height: auto;
+    margin: 0 auto;
+}
+
+.table-box {
+    width: 100%;
+    text-align: center;
+    margin: 0 auto;
+    margin-bottom: 10px;
+    overflow: auto;
+}
+
+.table-simple {
+    width: 90%;
+    margin: 0 auto;
+    text-align: center;
+    border: 1px solid #000;
+    border-collapse: collapse;
+}
+
+.table-simple thead {
+    background-color: #dddddd;
+}
+
+.table-simple thead th {
+    padding: 5px;
+    border: 1px solid #000;
+}
+
+.table-simple tbody tr td {
+    padding: 5px;
+    border: 1px solid #000000;
+}
+
+.btn {
+    padding: 3px 5px;
+    border-radius: 5px;
+    color: #ffffff;
+}
+
+.edit {
+    background-color: #234789;
+}
+
+.delete {
+    background-color: #ff0000;
+}
+
+.form-control {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    position: relative;
+}
+
+.form-field {
+    width: 100%;
+    height: auto;
+    min-height: 25px;
+    padding: 0px 10px;
+    margin-bottom: 10px;
+}
+
+.col-2 {
+    width: 50%;
+}
+
+.form-field > label {
+    display: inline-block;
+    width: 150px;
+}
+
+.form-field input,
+.form-field select {
+    min-width: 250px;
+    width: calc(100% - 160px);
+    min-height: 50px;
+    text-align: center;
+    text-align-last: center;
+    font-size: 15px;
+    border: 0;
+    border-bottom: 1px solid #cccccc;
+    background-color: #ffffff;
+}
+
+.form-field input:focus,
+.form-field select:focus {
+    outline: 0;
+    -webkit-box-shadow: 3px 3px 5px 1px rgba(0,0,0,0.45);
+    -moz-box-shadow: 3px 3px 5px 1px rgba(0,0,0,0.45);
+    box-shadow: 3px 3px 5px 1px rgba(0,0,0,0.45);
+}
+
+.form-control .btn-submit{
+    margin: 5px auto;
+    padding: 10px;
 }
