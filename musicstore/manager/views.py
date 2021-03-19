@@ -64,3 +64,35 @@ class MusicDeleteView(DeleteView):
     def get_success_url(self):
         return reverse('manager:music-list')
     
+
+class GenreCreateView(CreateView):
+    model = MUSIC_GENRE_MODEL
+    fields = '__all__'
+    template_name = 'music_form.html'
+    success_url = '/'
+
+
+class ArtistCreateView(CreateView):
+    model = ARTIST_MODEL
+    fields = '__all__'
+    template_name = 'music_form.html'
+    success_url = '/'
+
+    def form_valid(self, form):
+        return super().form_valid(form)
+
+
+class ArtistDetailView(DetailView):
+    model = ARTIST_MODEL
+    fields = '__all__'
+    template_name = 'artist_detail.html'
+    success_url = '/'
+
+    def get_object(self):
+        _id = self.kwargs.get('pk')
+        return get_object_or_404(self.model, id=_id)
+
+class ArtistListView(ListView):
+    template_name = 'artist_list.html'
+    queryset = ARTIST_MODEL.objects.all()
+    success_url = '/'
