@@ -10,7 +10,7 @@ from django.views.generic import (
 
 
 from .models import *
-from .forms import MusicModelForm
+from .forms import *
 
 # Create your views here.
 
@@ -33,22 +33,32 @@ class MusicListView(ListView):
 class MusicCreateView(CreateView):
     model = MUSIC_MODEL
     fields = '__all__'
-    template_name = 'music_form.html'
+    template_name = 'model_form.html'
     success_url = '/'
 
     def form_valid(self, form):
         return super().form_valid(form)
 
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['pageName'] = 'Music Register'
+        return context
+
 
 class MusicUpdateView(UpdateView):
     model = MUSIC_MODEL
     fields = '__all__'
-    template_name = 'music_form.html'
+    template_name = 'model_form.html'
     success_url = '/'
 
     def get_object(self):
         _id = self.kwargs.get('pk')
         return get_object_or_404(self.model, id=_id)
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['pageName'] = 'Music Update'
+        return context
 
     def form_valid(self, form):
         return super().form_valid(form)
@@ -68,20 +78,29 @@ class MusicDeleteView(DeleteView):
 class GenreCreateView(CreateView):
     model = MUSIC_GENRE_MODEL
     fields = '__all__'
-    template_name = 'music_form.html'
+    template_name = 'model_form.html'
     success_url = '/'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['pageName'] = 'Genre Register'
+        return context
 
 
 class ArtistCreateView(CreateView):
     model = ARTIST_MODEL
-    fields = '__all__'
-    template_name = 'music_form.html'
+    form_class = ArtistModelForm
+    template_name = 'model_form.html'
     success_url = '/'
 
     def form_valid(self, form):
         return super().form_valid(form)
-
-
+    
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['pageName'] = 'Artirst Register'
+        return context
+    
 class ArtistDetailView(DetailView):
     model = ARTIST_MODEL
     fields = '__all__'
@@ -96,3 +115,32 @@ class ArtistListView(ListView):
     template_name = 'artist_list.html'
     queryset = ARTIST_MODEL.objects.all()
     success_url = '/'
+
+class ArtistUpdateView(UpdateView):
+    model = ARTIST_MODEL
+    form_class = ArtistModelForm
+    template_name = 'model_form.html'
+    success_url = '/'
+
+    def get_object(self):
+        _id = self.kwargs.get('pk')
+        return get_object_or_404(self.model, id=_id)
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['pageName'] = 'Artist Update'
+        return context
+
+    def form_valid(self, form):
+        return super().form_valid(form)
+
+class ArtistDeleteView(DeleteView):
+    model = ARTIST_MODEL
+    template_name = 'music_delete.html'
+    
+    def get_object(self):
+        slug_pk = self.kwargs.get("pk")
+        return get_object_or_404(self.model, pk=slug_pk)
+
+    def get_success_url(self):
+        return reverse('manager:artrist-list')

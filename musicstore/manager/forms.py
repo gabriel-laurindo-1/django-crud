@@ -2,6 +2,9 @@ from django import forms
 
 from .models import *
 
+class DateTimeInputCustom(forms.DateTimeInput):
+    input_type = 'datetime-local'
+
 class MusicModelForm(forms.ModelForm):
     class Meta:
         model = MUSIC_MODEL
@@ -16,3 +19,13 @@ class ArtistModelForm(forms.ModelForm):
     class Meta:
         model = ARTIST_MODEL
         fields = '__all__'
+
+        widgets = {
+            'age': DateTimeInputCustom(
+                attrs={
+                    'step': 1,
+                    'require': False,
+                    'placeholder': 'Write was born'
+                }
+            )
+        }

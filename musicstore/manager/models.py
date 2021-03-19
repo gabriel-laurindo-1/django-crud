@@ -31,7 +31,7 @@ class MUSIC_GENRE_MODEL(models.Model):
 class ARTIST_MODEL(models.Model):
 
     name = models.CharField(max_length=20, verbose_name='Name')
-    age = models.IntegerField()
+    age = models.DateTimeField(verbose_name='Was Born Date')
     music = models.ForeignKey('MUSIC_MODEL', on_delete = models.CASCADE, null = True)
     
     def __str__(self):
