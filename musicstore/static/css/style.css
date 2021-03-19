@@ -13,6 +13,23 @@ body {
     padding-bottom: 50px;
 }
 
+
+body > header {
+    background-color: #12029e;
+}
+
+.menu {
+    width: 100%;
+    margin: 0 auto;
+    padding: 5px 0;
+    text-align: center;
+    border-bottom: 1px solid #fff;
+}
+
+.menu a:hover {
+    text-decoration: underline;
+}
+
 a {
     text-decoration: none;
     color: #000000;
