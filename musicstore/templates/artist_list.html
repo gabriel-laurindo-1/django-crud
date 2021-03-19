@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<section class="content">
+    <header>
+        <h1> Artist List </h1>
+    </header>
+
+    <div class="table-box">
+        <table class="table-simple">
+            <thead>
+                <tr>
+                    <th> ID </th>
+                    <th> Name </th>
+                    <th> Music </th>
+                    <th> Update </th>
+                    <th> Delete </th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for instance in object_list %}
+                <tr>
+                    <td>{{ instance.id }}</td>
+                    <td><a href="{% url 'manager:music-detail' pk=instance.id %}">{{ instance.name }}</a></td>
+                    <td><a href="#">{{ instance.music }} </a></td>
+                    <td><a class="btn edit" href="{% url 'manager:music-update' pk=instance.id %}"> Edit </a></td>
+                    <td><a class="btn delete"href="{% url 'manager:music-delete' pk=instance.id %}" class="red"> Delete </a></td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div><!--table-box-->
+        
+
+</section>
+{% endblock %}

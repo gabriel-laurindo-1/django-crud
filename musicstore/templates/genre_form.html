@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<section class="content"> 
+    <header>
+        <h1> Genre Form </h1>
+        <a class="btn" href="{% url 'manager:music-list' %}"> Home </a>
+    </header>
+    <form action="" method="post" >
+        {% csrf_token %}
+        <div class="form-control">
+            {% for field in form %}
+            <div class="form-field">
+                {{ field.label_tag }}
+                {{ field }}
+            </div>
+            {% endfor %}
+            <input type="submit" class="btn-submit" value="Send">
+        </div><!--form-control-->
+    </form>
+    
+</section><!--content-->
+{% endblock %}
