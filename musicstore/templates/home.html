@@ -4,7 +4,6 @@
 <section class="content">
     <header>
         <h1> HOME </h1>
-        <a class="btn" href="{% url 'manager:music-create' %}"> New </a>
     </header>
 
     <div class="table-box">
@@ -13,6 +12,7 @@
                 <tr>
                     <th> ID </th>
                     <th> Name </th>
+                    <th> Genre </th>
                     <th> Update </th>
                     <th> Delete </th>
                 </tr>
@@ -22,6 +22,7 @@
                 <tr>
                     <td>{{ instance.id }}</td>
                     <td><a href="{% url 'manager:music-detail' pk=instance.id %}">{{ instance.name }}</a></td>
+                    <td><a href="#">{{ instance.genre }}</a></td>
                     <td><a class="btn edit" href="{% url 'manager:music-update' pk=instance.id %}"> Edit </a></td>
                     <td><a class="btn delete"href="{% url 'manager:music-delete' pk=instance.id %}" class="red"> Delete </a></td>
                 </tr>
