@@ -5,7 +5,11 @@ from .views import (
     MusicListView,
     MusicCreateView,
     MusicUpdateView,
-    MusicDeleteView
+    MusicDeleteView,
+    GenreCreateView,
+    ArtistDetailView,
+    ArtistListView,
+    ArtistCreateView,
 )
 
 app_name = 'manager'
@@ -15,4 +19,8 @@ urlpatterns = [
     path('detail/<int:pk>', MusicDetailView.as_view(), name="music-detail"),
     path('update/<int:pk>', MusicUpdateView.as_view(), name="music-update"),
     path('delete/<int:pk>', MusicDeleteView.as_view(), name="music-delete"),
+    path('create-genre/', GenreCreateView.as_view(), name="genre-create"),
+    path('artist-create/', ArtistCreateView.as_view(), name="artist-create"),
+    path('artist/', ArtistListView.as_view(), name="artist-list"),
+    path('artist/<int:pk>', MusicDetailView.as_view(), name="artist-detail"),
 ]
