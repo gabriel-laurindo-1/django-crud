@@ -19,7 +19,12 @@
 
 <body>
     <header>
-
+        <div class="menu">
+            <a class="btn" href="{% url 'manager:music-create' %}"> New Music </a>
+            <a class="btn" href="{% url 'manager:genre-create' %}"> New Genre </a>
+            <a class="btn" href="{% url 'manager:artist-create' %}"> New Artists </a>
+            <a class="btn" href="{% url 'manager:artist-list' %}"> Artists </a>
+        </div>
     </header>
     <main>
         <div class="center">
