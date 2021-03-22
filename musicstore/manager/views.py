@@ -152,4 +152,4 @@ class ArtistDeleteView(DeleteView):
         return get_object_or_404(self.model, pk=slug_pk)
 
     def get_success_url(self):
-        return reverse('manager:artrist-list')
+        return reverse('manager:artist-list')
