@@ -1,6 +1,7 @@
 from django import forms
 
 from .models import *
+from datetime import datetime
 
 class MusicModelForm(forms.ModelForm):
     class Meta:
@@ -28,3 +29,11 @@ class ArtistModelForm(forms.ModelForm):
                 }
             )
         }
+
+    # Validação
+
+    def clean_name(self):
+        check = self.cleaned_data['name']
+        if len(check) > 10:
+            raise forms.ValidationError("Escolha uma opção válida.")
+        return check
