@@ -126,6 +126,15 @@ class ArtistUpdateView(UpdateView):
         _id = self.kwargs.get('pk')
         return get_object_or_404(self.model, id=_id)
 
+    def get_initial(self):
+        initial = super().get_initial()
+
+        # retrieve current object
+        default_format_datetime_local_html5 = self.object.age.strftime('%Y-%m-%dT%H:%M:%S')
+        initial['age'] = default_format_datetime_local_html5
+
+        return initial
+
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['pageName'] = 'Artist Update'

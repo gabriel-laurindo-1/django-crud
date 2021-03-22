@@ -20,6 +20,7 @@ class ArtistModelForm(forms.ModelForm):
         widgets = {
             'age': forms.DateTimeInput(
                 attrs={
+                    'format':'yyyy-MM-ddThh:mm:ss',
                     'type': 'datetime-local',
                     'step': 1,
                     'require': False,
