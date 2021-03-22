@@ -21,8 +21,8 @@
                 {% for instance in object_list %}
                 <tr>
                     <td>{{ instance.id }}</td>
-                    <td><a href="{% url 'manager:music-detail' pk=instance.id %}">{{ instance.name }}</a></td>
-                    <td><a href="#">{{ instance.music }} </a></td>
+                    <td><a href="#">{{ instance.name }}</a></td>
+                    <td><a href="{% url 'manager:music-detail' pk=instance.id %}">{{ instance.music }} </a></td>
                     <td><a class="btn edit" href="{% url 'manager:artist-update' pk=instance.id %}"> Edit </a></td>
                     <td><a class="btn delete"href="{% url 'manager:artist-delete' pk=instance.id %}" class="red"> Delete </a></td>
                 </tr>
