@@ -12,6 +12,8 @@ from .views import (
     ArtistCreateView,
     ArtistUpdateView,
     ArtistDeleteView,
+    AlbumWizard,
+    show_message_form_condition
 )
 
 app_name = 'manager'
@@ -27,4 +29,5 @@ urlpatterns = [
     path('artist/<int:pk>', MusicDetailView.as_view(), name="artist-detail"),
     path('artist-update/<int:pk>', ArtistUpdateView.as_view(), name="artist-update"),
     path('artist-delete/<int:pk>', ArtistDeleteView.as_view(), name="artist-delete"),
+    path('album/', AlbumWizard.as_view(condition_dict={'1': show_message_form_condition}), name='album'),
 ]
